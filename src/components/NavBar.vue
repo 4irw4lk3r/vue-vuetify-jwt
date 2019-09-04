@@ -4,7 +4,7 @@
             <v-toolbar-title>Hey kid! Do you wanna some movies?</v-toolbar-title>
 
             <v-toolbar-items>
-                <v-btn text><span>home</span></v-btn>
+                <v-btn text @click="navigate_to('')"><span>home</span></v-btn>
             </v-toolbar-items>
 
             <v-spacer></v-spacer>
@@ -12,7 +12,7 @@
             <v-toolbar-items>
 
                <div style="margin-top: 3%">
-                   <v-text-field
+                   <v-text-field 
                         solo-inverted
                    ></v-text-field>
                </div>
@@ -46,7 +46,7 @@
                     </v-list>
                 </v-menu>
 
-                <v-btn text>
+                <v-btn text @click="navigate_to('login')">
                     <span>Login</span>
                     <v-icon small>mdi-login</v-icon>              
                 </v-btn>
@@ -65,7 +65,12 @@
                 { title: 'Comedy' },
                 { title: 'Terror' },
             ],
-        })
+        }),
+        methods: {
+            navigate_to(URL){
+                this.$router.push('/'+URL);
+            },
+        },
     }
 </script>
 
